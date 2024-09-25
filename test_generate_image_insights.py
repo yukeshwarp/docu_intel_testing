@@ -2,10 +2,15 @@ import pytest
 import requests  
 import requests_mock  
 import json  
-  
+import os
 # Import the function from the module where it is defined  
 from docu_intel import generate_image_insights  # replace 'your_module' with the actual module name  
-  
+
+api_key = os.getenv("AZURE_API_KEY")
+api_version = os.getenv("API_VERSION")
+model = os.getenv("MODEL_NAME")
+endpoint = os.getenv("AZURE_API_ENDPOINT")
+
 def encode_image(image_path):  
     import base64  
     with open(image_path, "rb") as img_file:  
@@ -40,19 +45,19 @@ def mock_azure_response():
   
 @pytest.fixture  
 def api_key():  
-    return "6e98566acaf24997baa39039b6e6d183"  
+    return api_key  
   
 @pytest.fixture  
 def azure_endpoint():  
-    return "https://gpt-4omniwithimages.openai.azure.com/"  
+    return endpoint  
   
 @pytest.fixture  
 def model():  
-    return "GPT4Omni"  
+    return model  
   
 @pytest.fixture  
 def api_version():  
-    return "2024-02-15-preview"  
+    return api_version  
   
 @pytest.fixture  
 def text_length():  
