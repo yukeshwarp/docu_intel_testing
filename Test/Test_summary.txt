@@ -1,0 +1,27 @@
+1. test_ppt_to_pdf                     :Successful
+
+2. test_encode_image                   :Successful
+
+3. test_get_image_explanation          :Successful
+
+4. test_extract_text_from_ppt          :Expected improvement: Slide content is including the title of the slide again, Should be removed
+                                        Summary: ----------------------------------------------------- Captured stdout call ------------------------------------------------------ 
+                                                Result: [{'slide_number': 1, 'slide_title': 'Slide 1 Title', 'text': 'Slide 1 Title This is the first slide.'}, {'slide_number': 2, 'slide_title': 'Slide 2 Title', 'text': 'Slide 2 Title This is the second slide.'}]
+                                                Expected: [{'slide_number': 1, 'slide_title': 'Slide 1 Title', 'text': 'This is the first slide.'}, {'slide_number': 2, 'slide_title': 'Slide 2 Title', 'text': 'This is the second slide.'}]
+                                                ==================================================== short test summary info ==================================================== 
+                                                FAILED test_extract_text_from_ppt.py::test_extract_text_from_ppt - AssertionError: assert 'Slide 1 Titl... first slide.' == 'This is the first slide.'
+
+5. test_is_image_of_interest           :Successful
+
+6. test_detect_image_slides            :Successful, Update to the is_image_of_interest is expected
+7. test_identify_visual_elements       :Failed to detect, Empty return for FFT ppt
+8. test_combine_slide_numbers          :Successful
+9. test_capture_slide_images           :Successful
+10. test_generate_text_insights         :Successful, need to test after above changes
+11. test_generate_image_insights        :Successful, need to test after above changes
+12. test_aggregate_content              :Successful
+13. test_sanitize_text                  :Successful
+14. test_ensure_proper_spacing          :Failed few tests, needs a better logic using libraries than hard coding spaces
+15. test_save_content_to_word           :Paragraph count is not as expected. Not sure if it needs fix.
+16. test_extract_and_clean_page_image   :Pending
+17. test_extract_images_from_pdf        :Pending
